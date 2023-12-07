@@ -5,6 +5,7 @@ require 'fastlane/plugin/ravn_mobile/version'
 Gem::Specification.new do |spec|
   spec.name = 'fastlane-plugin-ravn_mobile'
   spec.version = Fastlane::RavnMobile::VERSION
+  # TODO: Change contact information once published
   spec.author = 'quebin31'
   spec.email = 'kevindelcastillo@ravn.co'
 
