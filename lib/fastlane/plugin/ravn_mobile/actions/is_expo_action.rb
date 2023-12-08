@@ -1,5 +1,5 @@
 require 'fastlane'
-require 'json'
+require_relative '../helper/framework_helper'
 
 module Fastlane
   module Actions
@@ -10,17 +10,7 @@ module Fastlane
     # Action to detect if the current project uses Expo
     class IsExpoAction < Action
       def self.run(_params)
-        return false unless File.exist?('package.json')
-
-        package_contents = read_package_json
-        is_expo = package_contents&.dig('dependencies')&.dig('expo') ? true : false
-        Action.lane_context[SharedValues::IS_EXPO_PROJECT] = is_expo
-      end
-
-      def self.read_package_json
-        JSON.parse(File.read('package.json'))
-      rescue StandardError
-        {}
+        Action.lane_context[SharedValues::IS_EXPO_PROJECT] = Helper::FrameworkHelper.is_expo?
       end
 
       #####################################################

@@ -1,5 +1,5 @@
 require 'fastlane'
-require 'json'
+require_relative '../helper/framework_helper'
 
 module Fastlane
   module Actions
@@ -10,18 +10,7 @@ module Fastlane
     # Action to detect if project is React Native
     class IsReactNativeAction < Action
       def self.run(_params)
-        return false unless File.exist?('package.json')
-        return false unless Dir.exist?('android') && Dir.exist?('ios')
-
-        package_contents = read_package_json
-        is_react_native = package_contents&.dig('dependencies')&.dig('react-native') ? true : false
-        Action.lane_context[SharedValues::IS_REACT_NATIVE_PROJECT] = is_react_native
-      end
-
-      def self.read_package_json
-        JSON.parse(File.read('package.json'))
-      rescue StandardError
-        {}
+        Action.lane_context[SharedValues::IS_REACT_NATIVE_PROJECT] = Helper::FrameworkHelper.is_react_native?
       end
 
       #####################################################
