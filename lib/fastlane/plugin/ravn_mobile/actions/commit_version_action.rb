@@ -22,9 +22,6 @@ module Fastlane
           # noinspection RubyResolve
           other_action.git_commit(path: [properties_path], message: message)
         end
-
-        # noinspection RubyResolve
-        other_action.push_to_git_remote
       end
 
       #####################################################
