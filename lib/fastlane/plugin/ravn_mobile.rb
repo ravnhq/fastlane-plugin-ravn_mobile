@@ -2,9 +2,9 @@ require_relative './ravn_mobile/version'
 
 module Fastlane
   module RavnMobile
-    # Return all .rb files inside the "actions" and "helper" directory
+    # Return all .rb files inside the "actions", "helper" and "fastlane" directory
     def self.all_classes
-      Dir[File.expand_path('**/{actions,helper}/*.rb', File.dirname(__FILE__))]
+      Dir[File.expand_path('**/{actions,helper,fastlane}/*.rb', File.dirname(__FILE__))]
     end
   end
 end

@@ -1,27 +1,10 @@
 require 'fastlane'
-require 'tmpdir'
-require_relative '../util/util'
 
 module Fastlane
   module Actions
     class ImportRavnLanesAction < Action
-      IMPORT_URL = 'https://github.com/ravnhq/mobile-cicd'
-      IMPORT_VERSION = '~> 0.2'
-
       def self.run(params)
-        platform = params[:platform]
-
-        version = params[:version]
-        version = blank?(version) ? ImportRavnLanesAction::IMPORT_VERSION : version
-
-        url = ImportRavnLanesAction::IMPORT_URL
-        path = platform == 'android' ? 'lanes/android.rb' : 'lanes/ios.rb'
-        cache_path = Dir.mktmpdir("ravn_lanes")
-
-        dependencies = %w[lanes/util.rb]
-        dependencies.each { |dep_path| other_action.import_from_git(url: url, path: dep_path, version: version, cache_path: cache_path) }
-
-        other_action.import_from_git(url: url, path: path, version: version, cache_path: cache_path)
+        # implemented in ../fastlane/import_ravn_lanes.rb
       end
 
       #####################################################
@@ -50,7 +33,7 @@ module Fastlane
                                        env_name: 'FL_IMPORT_RAVN_LANES_VERSION',
                                        description: 'Version to import',
                                        type: String,
-                                       default_value: ImportRavnLanesAction::IMPORT_VERSION)
+                                       optional: true)
         ]
       end
 
