@@ -5,12 +5,11 @@ require 'fastlane/plugin/ravn_mobile/version'
 Gem::Specification.new do |spec|
   spec.name = 'fastlane-plugin-ravn_mobile'
   spec.version = Fastlane::RavnMobile::VERSION
-  # TODO: Change contact information once published
-  spec.author = 'quebin31'
-  spec.email = 'kevindelcastillo@ravn.co'
+  spec.author = 'ravnhq'
+  spec.email = 'developer@ravn.co'
 
   spec.summary = 'Utility actions for Fastlane build and deployment of Android and iOS apps for both native and cross platform implementations'
-  spec.homepage = "https://github.com/ravn-hq/fastlane-plugin-ravn_mobile"
+  spec.homepage = "https://github.com/ravnhq/fastlane-plugin-ravn_mobile"
   spec.license = "MIT"
 
   spec.files = Dir["lib/**/*"] + %w(README.md LICENSE)
