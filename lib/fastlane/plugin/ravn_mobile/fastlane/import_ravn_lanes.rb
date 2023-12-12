@@ -3,8 +3,7 @@ require 'tmpdir'
 require_relative '../util/util'
 
 module Fastlane
-  module FastFile
-
+  class FastFile
     # @param [String] platform Either 'android' or 'ios'
     # @param [String] version Same syntax as `import_from_git`
     def import_ravn_lanes(platform, version = nil)
