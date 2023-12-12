@@ -18,8 +18,9 @@ module Fastlane
         url = ImportRavnLanesAction::IMPORT_URL
         path = platform == 'android' ? 'lanes/android.rb' : 'lanes/ios.rb'
         dependencies = %w[lanes/util.rb]
+        cache_path = Dir.mktmpdir("ravn_lanes")
 
-        other_action.import_from_git(url:, path:, version:, dependencies:)
+        other_action.import_from_git(url:, path:, version:, dependencies:, cache_path:)
       end
 
       #####################################################
