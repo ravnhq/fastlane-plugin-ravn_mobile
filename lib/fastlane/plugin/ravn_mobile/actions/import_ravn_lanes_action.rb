@@ -4,7 +4,6 @@ require_relative '../util/util'
 
 module Fastlane
   module Actions
-
     class ImportRavnLanesAction < Action
       IMPORT_URL = 'https://github.com/ravnhq/mobile-cicd'
       IMPORT_VERSION = '~> 0.2'
@@ -20,7 +19,7 @@ module Fastlane
         dependencies = %w[lanes/util.rb]
         cache_path = Dir.mktmpdir("ravn_lanes")
 
-        other_action.import_from_git(url:, path:, version:, dependencies:, cache_path:)
+        other_action.import_from_git(url: url, path: path, version: version, dependencies: dependencies, cache_path: cache_path)
       end
 
       #####################################################
