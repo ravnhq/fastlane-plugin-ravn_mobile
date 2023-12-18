@@ -8,7 +8,7 @@ module Fastlane
       platform = params[:platform]
       UI.user_error!("Invalid platform value #{platform}") unless %w[android ios].include?(platform)
 
-      default_version = '~> 0.2'
+      default_version = '~> 0.3'
       version = params[:version]
       version = default_version if blank?(version)
 
